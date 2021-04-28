@@ -1,0 +1,25 @@
+24/04/2021
+find project on github using flask, mysql database, python 
+Make database
+  vaccine_details
+    vac name, detail of vaction, Manufature place, Manufacture date, expiry
+  vaccine_loc
+    which vac, Available in cities, from date, till date, quantity
+
+25/04/2021
+Exception Handling in mysql for python
+Parsing of date
+Gneric select ; insert ; update ; delete
+DBLayer.py
+
+26/04/2021
+Update if vaccine name is already present in table
+Do case sensitive comparision in update
+if got blank parameters in functions
+change table name
+Add not null to each column
+error / exeption handling
+Primary key and Foreign key
+
+27/04/2021
+Integrate User Interface and database
