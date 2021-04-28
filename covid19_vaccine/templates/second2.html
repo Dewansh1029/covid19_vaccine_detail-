@@ -1,0 +1,107 @@
+<html>
+<head>
+<style>
+
+ul{
+    list-style-type: none;
+    float:right;
+    margin-top:20px;
+}
+ul li{
+    display: inline-block;
+}
+ul li a{
+    text-decoration:none;
+    padding: 5px 20px;
+    border:1px solid transparent;
+    transition:0.6s ease;
+}
+ul li a:hover{
+    background-color: red;
+    color: #000;
+}
+img{
+    width: 100%;
+    padding:5px;
+}
+.title{
+    position: absolute;
+    top:10%;
+    left:40%;
+    padding:10px;
+}
+bg-img{
+    background-image: url("logo.jpg");
+}
+form{
+    margin-top:15px;
+}
+.footer-container{
+    background-color: white;
+    padding-bottom:4rem;
+}
+.footer{
+    position:fixed;
+    left:0;
+    bottom:0%;
+    width:100%;
+    background-color: blacksalmon;
+    color:black;
+    text-align:center;
+}
+a{
+    padding: 20px;
+    text-align:center;
+    background-color:blacksalmon;
+    text-decoration:none;
+}
+
+</style>
+</head>
+<body>
+<header>
+        <div class="main">
+            <ul>
+                <li><a href="{{url_for('test')}}">Home</a></li>
+                <li><a href="{{url_for('first1')}}">Vaccine information</a></li>
+                <li><a href="{{url_for('second2')}}">vaccine avalibility</a></li>
+                <li><a href="{{url_for('third')}}">Vaccine City</a></li>
+            </ul>
+        </div>
+        
+
+        
+</header>
+<div class="title">
+        <h1>Product information</h1>
+
+
+    <form  action="{{url_for('second1')}}" method="post">
+    <label for="fname">Vaccine Name:</label><br>
+    <input type="text" id="vname" name="vname"><br>
+    <label for="dname">Avaliable city:</label><br>
+    <input type="text" id="aname" name="aname"><br>
+    <label for="lname">Avaliable date:</label><br>
+    <input type="text" id="avname" name="avname"><br>
+    <label for="mname">End date avalibity:</label><br>
+    <input type="text" id="nname" name="nname"><br>
+    <label for="ename">Quantity of vaccine:</label><br>
+    <input type="text" id="qname" name="qname"><br>
+    <button type="submit" id="sub_details" name="sub_details" value="sub_details" > Submit </button>
+    <br>
+
+</div>
+
+<div class="footer-container">
+        <div class="footer">
+            <div class="footer-heading footer-1">
+                <h2>About</h2>
+                <a href="#">Blog</a>
+                <a href="#">Customer</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+</div>
+</from>
+</body>
+</html>

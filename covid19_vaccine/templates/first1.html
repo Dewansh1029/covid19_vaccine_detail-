@@ -1,0 +1,120 @@
+<html>
+<head>
+<style>
+
+ul{
+    list-style-type: none;
+    float:right;
+    margin-top:20px;
+}
+ul li{
+    display: inline-block;
+}
+ul li a{
+    text-decoration:none;
+    padding: 5px 20px;
+    border:1px solid transparent;
+    transition:0.6s ease;
+}
+ul li a:hover{
+    background-color: red;
+    color: #000;
+}
+img{
+    width: 100%;
+    padding:5px;
+}
+.title{
+    position: absolute;
+    top:10%;
+    left:40%;
+    padding:10px;
+}
+bg-img{
+    background-image: url("logo.jpg");
+}
+.container{
+    position: absolute;
+    left:28px;
+    max-width:200px;
+}
+.form{
+    margin-top:15px;
+}
+.footer-container{
+    background-color: white;
+    padding-bottom:4rem;
+    bottom: 0;
+}
+.footer{
+    position:absolute;
+    left:0;
+    bottom:0%;
+    width:100%;
+    background-color: blacksalmon;
+    color:black;
+    text-align:center;
+}
+.fotter-heading footer-1{
+    position:fixed;
+    left:0;
+    bottom:0%;
+    width:100%;
+    background-color: black;
+    color:black;
+    text-align:center;
+}
+a{
+    padding: 20px;
+    text-align:center;
+    background-color:blacksalmon;
+    text-decoration:none
+}
+</style>
+</head>
+<body>
+
+<header>
+        <div class="main">
+            <ul>
+                <li><a href="{{url_for('test')}}">Home</a></li>
+                <li><a href="{{url_for('first1')}}">Vaccine information</a></li>
+                <li><a href="{{url_for('second2')}}">vaccine avalibility</a></li>
+                <li><a href="{{url_for('third')}}">Vaccine City</a></li>
+            </ul>
+        
+</header>
+
+<div class="title">
+        <h1>Vaccine Deatils</h1>
+
+    <form  action="{{url_for('first2')}}" method="post">
+    <label for="fname">Vaccine Name:</label><br>
+    <input type="text" id="fname" name="fname" /><br>
+    <label for="dname">Detail of vaccine:</label><br>
+    <input type="text" id="dname" name="dname" /><br>
+    <label for="lname">Lcation of Manufacture:</label><br>
+    <input type="text" id="lname" name="lname"><br>
+    <label for="mname">Date of Manufacture:</label><br>
+    <input type="text" id="mname" name="mname" /><br>
+    <label for="ename">Expire of date:</label><br>
+    <input type="text" id="ename" name="ename" /><br>
+    <button type="submit" id="sub_details" name="sub_details" value="sub_details" > Submit </button>
+    <br>
+    </form>
+</div>
+
+<div class="footer-container">
+        <div class="footer">
+            <div class="footer-heading footer-1">
+                <h2>About</h2>
+                <a href="#">Blog</a>
+                <a href="#">Customer</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+</div
+     
+
+</body>
+</html>

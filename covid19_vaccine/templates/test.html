@@ -1,0 +1,95 @@
+<html>
+<head>
+    <title></title>
+<style>
+ul{
+    list-style-type: none;
+    float:right;
+    margin-top:20px;
+}
+ul li{
+    display: inline-block;
+}
+ul li a{
+    text-decoration:none;
+    padding: 5px 20px;
+    border:1px solid transparent;
+    transition:0.6s ease;
+}
+ul li a:hover{
+    background-color: red;
+    color: #000;
+}
+img{
+    width: 100%;
+
+}
+.title{
+    position: absolute;
+    top:10%;
+    left:40%;
+    padding:10px;
+}
+.footer-container{
+    background-color: #212329;
+    padding-bottom:4rem;
+}
+.footer{
+    position:Relative;
+    left:0;
+    bottom:0%;
+    width:100%;
+    background-color: blacksalmon;
+    color:black;
+    text-align:center;
+    margin-bottom:-10px;
+    padding:20px;
+
+}
+.footer-heading footer-1{
+    padding:20px;
+}
+a{
+    padding: 20px;
+    text-align:center;
+    background-color:blacksalmon;
+    text-decoration:none;
+}
+
+</style>
+</head>
+<body>
+<form>
+    <header>
+        <div class="main">
+            <ul>
+                <li><a href="{{url_for('test')}}">Home</a></li>
+                <li><a href="{{url_for('first1')}}">Vaccine information</a></li>
+                <li><a href="{{url_for('second2')}}">Vaccine avalibility</a></li>
+                <li><a href="{{url_for('third')}}">Vaccine City</a></li>
+            </ul>
+        </div>
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="logo">
+    </header>
+    <div class="footer-container">
+        <div class="footer">
+            <div class="footer-heading footer-1">
+                <h2>About</h2>
+                <a href="#">Blog</a>
+                <a href="#">Customer</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Product</a>
+                <a href="#">Customer service</a>
+            </div>
+            <div class="footer-bottom">
+            <p>All Right reserved by &copy;conceptial</p>
+            </div>
+        </div>
+    </div> 
+
+
+
+
+</form>
+</body>
+</html>
