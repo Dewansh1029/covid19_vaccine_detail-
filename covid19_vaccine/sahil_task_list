@@ -1,6 +1,8 @@
-Create a flask
+(25-04-2021)Create a flask
 and configure broswer to flask.
 connect python ,flask,broswer and html page.
 import diferent module of python
 make table which contain  information of vaccine given by programmer.
 display that on console.
+(28-4-2021)Change the UI of first and second page in tabular form.
+(28-04-2021)Display the all information on third page.
