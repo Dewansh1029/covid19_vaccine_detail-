@@ -10,3 +10,17 @@ display that on console.
 
 // 28-04-2021
 Change UI for Vaccine Details page 
+
+//1-5-2021
+1)table input multiple list
+2)ui of contact list i)name
+                      ll)email
+                      iii)address
+3)mysql install
+4)create a table for contact us i)name
+                                ii)emailll
+                                iii)address
+                                iv)date
+                                
+5)cretae a function of bussinesss layer
+6)create a function in data base layer in bussiness layer
