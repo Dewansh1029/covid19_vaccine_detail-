@@ -115,6 +115,14 @@ def insert_userDetails(name, userid, password) :
     col_values = [name, userid, password]
     table_name = "user_details"
     database.insertQuery (col_name, col_values, table_name)
+	
+
+def insert_contact(cname, cemail, caddress) :
+    col_name = ['name', 'email', 'address']
+    col_values = [cname, cemail, caddress]
+    table_name = 'contact_details'
+    database.insertQuery (col_name, col_values, table_name)	
+
 
 # def show_details(vaccine_name) :
 #     lst_col = ['vac_name']
