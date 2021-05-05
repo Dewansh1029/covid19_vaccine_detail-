@@ -1,7 +1,21 @@
-from flask import Flask, request,render_template, url_for ,redirect
-import businesslayer
+from flask import Flask, request,render_template, url_for ,redirect, session
+from flask_session import Session
+import covid_bl as businesslayer
 
 app = Flask(__name__)
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
+# app.secret_key = "abc"
+
+# if request.method == 'POST' :
+#     singup=request.form
+#     username=singup['user']
+#     password=singup['pass']
+#     session['username']=request.form['user']
+#     if 'username' in session:
+#         s=session['username']
+
 
 @app.route('/')
 def login():
@@ -9,6 +23,8 @@ def login():
 
 @app.route('/home')
 def clickhome():
+    if not session.get("user"):
+        return redirect("/")
     return render_template('test.html')
 
 @app.route('/home',methods=['GET', 'POST'])
@@ -22,7 +38,13 @@ def home():
     elif result == 1:
         return render_template('loginpage.html', status = 0, val = 2)
     else:
-        return render_template('test.html')
+        if request.method == "POST":
+            session["user"] = request.form.get("userid")
+            if not session.get("user"):
+                return redirect("/loginpage")
+            return render_template('test.html')
+        return render_template('loginpage.html', status = 0, val = 2)
+
 
 @app.route('/signup',methods=['GET', 'POST'])
 def signup():
@@ -40,11 +62,15 @@ def signedup():
         return render_template('loginpage.html', status = 1, val = 4)
     elif result == 1:
         return render_template('loginpage.html', status = 1, val = 2)
-    businesslayer.insert_userDetails(name, uid, password) 
+    businesslayer.insert_userDetails(name, uid, password)
+    if not session.get("user"):
+        return redirect("/")
     return render_template('loginpage.html', status = 0, val = 3)
 
 @app.route('/showvac')
 def show_vac():
+    if not session.get("user"):
+        return redirect("/")
     return render_template('getDetails.html', data=[], status=0, val = 2)
 
 @app.route('/vaccine_details', methods = ['GET', 'POST'])
@@ -54,13 +80,19 @@ def displayDetails():
     # print(vaccine_name, checkbox)
     if checkbox == None:
         data,status = businesslayer.show_details(vaccine_name)
+        if not session.get("user"):
+            return redirect("/")
         return render_template('getDetails.html', data=data,status=status, val=0)
     else :
         data,status = businesslayer.show_full_table_details(vaccine_name)
+        if not session.get("user"):
+            return redirect("/")
         return render_template('getDetails.html', data=data,status=status, val=1)
 
 @app.route('/update_details_first_page', methods = ['GET', 'POST'])
 def update_details_first_page():
+    if not session.get("user"):
+        return redirect("/loginpage")
     return render_template('updateDetails.html', val=1, data=[])
 
 
@@ -69,7 +101,11 @@ def update_details():
     val = request.form.get("first-choice")
     if val == "Vaccine Names":
         data = businesslayer.only_vac_name()
+        if not session.get("user"):
+            return redirect("/loginpage")
         return render_template('updateDetails.html', val=2, data=data)
+        if not session.get("user"):
+            return redirect("/loginpage")
     return render_template('updateDetails.html', val=1, data=[])
 
 @app.route('/update_vac_details', methods = ['GET', 'POST'])
@@ -77,6 +113,8 @@ def update_vac_details():
     val = request.form.get("second-choice")
     # vac_name = "val"
     data, val = businesslayer.show_details(val)
+    if not session.get("user"):
+        return redirect("/loginpage")
     return render_template('updateDetails.html', val=3, data=data)
 
 @app.route('/updated_vaccine_details', methods = ['GET', 'POST'])
@@ -88,19 +126,23 @@ def updated_vaccine_details():
     vexpiry = request.form['vaccine_expiry_date']
     print(vname, vby, vplace, vdate, vexpiry)
     businesslayer.update_by_vac_name(vname, vby, vplace, vdate, vexpiry)
+    if not session.get("user"):
+        return redirect("/loginpage")
     return render_template('updateDetails.html', val=4, data=[])
     
 
 @app.route('/first1',methods=['GET','POST'])
 def first1():
+    if not session.get("user"):
+        return redirect("/")
     return render_template('first1.html')
 
-def display_on_console(vaccine_name,city_name,ava_date,vacc_qty,expiry_date):
-    print("Vaccine Name :\t",vaccine_name)
-    print("Available In :\t",city_name)
-    print("Date :\t",ava_date)
-    print("Vaccine Qty :\t",vacc_qty)
-    print("Expiry Date :\t",expiry_date)
+# def display_on_console(vaccine_name,city_name,ava_date,vacc_qty,expiry_date):
+#     print("Vaccine Name :\t",vaccine_name)
+#     print("Available In :\t",city_name)
+#     print("Date :\t",ava_date)
+#     print("Vaccine Qty :\t",vacc_qty)
+#     print("Expiry Date :\t",expiry_date)
 
 @app.route('/first2',methods=['GET','POST'])
 def first2():
@@ -113,11 +155,15 @@ def first2():
     print(_vac_name, ava_detail, ava_manufacture_loc, manufacture_date, ex_date)
     businesslayer.input_table1(_vac_name, ava_detail, ava_manufacture_loc, manufacture_date, ex_date)
     print("Calling HTML Page in app route first 2")
-    return render_template('first1.html')    
+    if not session.get("user"):
+        return redirect("/")
+    return render_template('first1.html')
 
 @app.route('/second2',methods=['GET', 'POST'])
 def second2():
     print('inside second 2 main.py')
+    if not session.get("user"):
+        return redirect("/")
     return render_template('second2.html')
 
 @app.route('/second1',methods=['GET','POST'])
@@ -131,14 +177,26 @@ def second1():
     print('inside main.py 2')
     print(_vac_name, av_city, av_date, exp_date, qtn_vacc)
     businesslayer.input_table2(_vac_name, av_city, av_date, exp_date, qtn_vacc)
+    if not session.get("user"):
+        return redirect("/")
     return render_template('second2.html')
 
 @app.route('/third',methods=['GET','POST'])
-def third():    
+def third():
+    if not session.get("user"):
+        return redirect("/")
     return render_template('third.html')
 
 def third3():
+    if not session.get("user"):
+        return redirect("/")
     return render_template('third.html')
+
+@app.route("/logout")
+def logout():
+    session.pop('user', None)
+    return render_template('loginpage.html', status = 0, val = 0)
+    # return render_template('loginpage.html', status = 0, val = 0)
 
 if __name__ == '__main__':
     app.run(threaded=True,debug=True)
