@@ -198,6 +198,30 @@ def logout():
     return render_template('loginpage.html', status = 0, val = 0)
     # return render_template('loginpage.html', status = 0, val = 0)
 
+@app.route('/contact1',methods=['GET','POST'])
+def contact():
+    return render_template('contact.html')
+
+def output(c_name,c_mail,c_addres):
+    print("Name:\t",c_name)
+    print("E-mail :\t",c_mail)
+    print("Address :\t",c_addres)
+
+
+@app.route('/contact',methods=['GET','POST'])
+def contact1():
+
+    c_name = request.form['name']
+    c_mail = request.form['mail']
+    c_addres = request.form['addres']
+    output(c_name,c_mail,c_addres)
+    businesslayer.insert_contact(c_name,c_mail,c_addres)
+    #print(c_name,c_mail,c_addres)
+    #businesslayer.input_tabel2(c_name,c_mail,c_addres)
+    return render_template('contact.html')
+    
+    
+    
 if __name__ == '__main__':
     app.run(threaded=True,debug=True)
 
