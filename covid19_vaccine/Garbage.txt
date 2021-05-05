@@ -1,0 +1,23 @@
+      <h2 id="aname">vaccine city {{aname}}</h2>
+      <h2 id="avname">av date{{date}}</h2>
+      <h2 id="nname">Quantity :{{quantity}}</h2>
+      <h2 id="qname">exp date: {{expire}}</h2>
+
+
+       <form>
+   <div>
+   {% for item in data %}
+      <h2 id="vname">Vacccine name {{ item[0] }} </h>
+      <h2 id="vanme_details">Vacccine name {{ item[1] }} </h2>      
+    {% endfor %}
+
+   <h2> Data Acces By Dictionary  </h2>    
+
+   {% for item in data_2["vac_details"] %}
+     <h2 id="vname">Vacccine name {{ item }} </h2>   
+      <h2 id="vname">Vacccine name {{ item[0] }} </h2>
+      <h2 id="vanme_details">Vacccine name {{ item[1] }} </h2>      
+    {% endfor %}
+
+    </div> 
+ 

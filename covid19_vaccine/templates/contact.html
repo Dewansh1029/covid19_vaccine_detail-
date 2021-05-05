@@ -20,34 +20,26 @@ ul li a:hover{
     background-color: red;
     color: #000;
 }
-img{
-    width: 100%;
-
-}
 .title{
-    position: absolute;
-    top:10%;
-    left:40%;
+    margin-left:40%;
     padding:10px;
-}
-.footer-container{
-    background-color: #212329;
-    padding-bottom:4rem;
+    display:inline-block;
 }
 .footer{
-    position:Relative;
+    position:fixed;
     left:0;
     bottom:0%;
     width:100%;
     background-color: blacksalmon;
     color:black;
     text-align:center;
-    margin-bottom:-10px;
-    padding:20px;
-
 }
-.footer-heading footer-1{
-    padding:20px;
+form{
+    margin-top:15px;
+}
+.footer-container{
+    background-color: white;
+    padding-bottom:4rem;
 }
 a{
     padding: 20px;
@@ -55,7 +47,17 @@ a{
     background-color:blacksalmon;
     text-decoration:none;
 }
+label{
+    width:240px;
+    display: inline-block;
+    padding:20px;
+    
+}
+#sub_details{
+    margin-top:50px;
+    margin-left:170px;
 
+}
 </style>
 </head>
 <body>
@@ -70,27 +72,34 @@ a{
                 <li><a href="{{url_for('contact')}}">Contact Us</a></li>
             </ul>
         </div>
-        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="logo">
     </header>
-    <div class="footer-container">
+</form>
+<div class="title">
+        <h1>Contact Details</h1>
+
+
+    <form  action="{{url_for('contact1')}}" method="post">
+    <label for="name"> Name:</label>
+    <input type="text" id="name" name="name"><br>
+    <label for="mail"> e-Email :</label>
+    <input type="text" id="mail" name="mail"><br>
+    <label for="addres">Address:</label>
+    <input type="text" id="addres" name="addres"><br>
+    <button type="submit" id="sub_details" name="sub_details" value="sub_details" > Submit </button>
+    <br>
+
+</div>
+
+<div class="footer-container">
         <div class="footer">
             <div class="footer-heading footer-1">
                 <h2>About</h2>
                 <a href="#">Blog</a>
                 <a href="#">Customer</a>
                 <a href="#">Terms of Service</a>
-                <a href="#">Product</a>
-                <a href="#">Customer service</a>
-            </div>
-            <div class="footer-bottom">
-            <p>All Right reserved by &copy;conceptial</p>
             </div>
         </div>
-    </div> 
-
-
-
-
-</form>
+</div>
+</from>
 </body>
 </html>

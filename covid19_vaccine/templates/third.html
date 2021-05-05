@@ -40,19 +40,21 @@ a{
     text-decoration:none;
 }
 
-table {
+.table {
 border-collapse: collapse;
 width: 100%;
 color: #588c7e;
 font-family: monospace;
 font-size: 25px;
 text-align: left;
+border-spacing: 5px;
+        
 }
 th {
 background-color: #588c7e;
 color: white;
 }
-tr:nth-child(even) {background-color: #f2f2f2}
+tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
 </head>
 <body>
@@ -64,32 +66,70 @@ tr:nth-child(even) {background-color: #f2f2f2}
                 <li><a href="{{url_for('first1')}}">Vaccine information</a></li>
                 <li><a href="{{url_for('second2')}}">vaccine avalibility</a></li>
                 <li><a href="{{url_for('third')}}">Vaccine City</a></li>
+                <li><a href="{{url_for('contact')}}">Contact Us</a></li>
             </ul>
-        
+        </div>
 </header>
-<form  action="{{url_for('third')}}" method="post">
-<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
-  <input type="text" id="fname" name="fname">
-<form oninput="_vac_name.value=parseInt(vname.value)">
-  =<output name="fname" for="fname"></output>  
-  <input type="range" id="a" value="50">
-  +<input type="number" id="b" value="25">
-  =<output name="x" for="a b"></output>
-
-
-
-  <form action="{{url_for('third1')}}" method="post">
-   <div>
-      <h2 id="vname">Vacccine name {{vaname}}</h2>
-      <h2 id="aname">vaccine city {{aname}}</h2>
-      <h2 id="avname">av date{{date}}</h2>
-      <h2 id="nname">Quantity :{{quantity}}</h2>
-      <h2 id="qname">exp date: {{expire}}</h2>
-      
-    </div> 
-    
-    
-  <button type="submit" id="sub_details" name="sub_details" value="sub_details" > Submit </button>
+  <table style="width:100%">
+        <tr>
+            <th>Vaccine name</th>
+            <th>Details of vaccine</th>
+            <th>Location of manufacturer</th>
+            <th>Date of manufacturer</th>
+            <th>Expire of date</th>
+        </tr>
+        <tr>
+            <tr><td>{% for item in data %}
+                <h id="vname"> {{ item[0] }} </h>
+                {% endfor %}
+                <td>{% for item in data_2 %}
+                <h id="avname"> {{ item[0] }} </h>      
+                {% endfor %}
+                </td>
+                <td>{% for item in data_3 %}
+                <h id="avname"> {{ item[0] }} </h>      
+                {% endfor %}
+                </td>
+                <td>{% for item in data_4 %}
+                <h id="nname"> {{ item[0] }} </h>      
+                {% endfor %}
+                </td>
+                <td>{% for item in data_5 %}
+                <h id="qname"> {{ item[0] }} </h>      
+                {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                {% for item in data %}
+                <h id="vanme_details"> {{ item[0] }} </h>      
+                {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                {% for item in data %}
+                <h id="vanme_details"> {{ item[0] }} </h>      
+                {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                {% for item in data %}
+                <h id="vanme_details"> {{ item[0] }} </h>      
+                {% endfor %}
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                {% for item in data %}
+                <h id="vanme_details"> {{ item[1] }} </h>      
+                {% endfor %}
+                </td>
+            </tr>
+        </tr>
+        
+    </table>
 
 <div class="footer-container">
         <div class="footer">

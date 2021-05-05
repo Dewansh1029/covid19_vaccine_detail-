@@ -55,6 +55,18 @@ a{
     background-color:blacksalmon;
     text-decoration:none;
 }
+label{
+    width:240px;
+    display: inline-block;
+    padding:20px;
+    
+}
+#sub_details{
+    margin-top:50px;
+    margin-left:170px;
+
+}
+
 
 </style>
 </head>
@@ -66,26 +78,24 @@ a{
                 <li><a href="{{url_for('first1')}}">Vaccine information</a></li>
                 <li><a href="{{url_for('second2')}}">vaccine avalibility</a></li>
                 <li><a href="{{url_for('third')}}">Vaccine City</a></li>
+                <li><a href="{{url_for('contact')}}">Contact Us</a></li>
             </ul>
         </div>
-        
-
-        
 </header>
 <div class="title">
         <h1>Product information</h1>
 
 
     <form  action="{{url_for('second1')}}" method="post">
-    <label for="fname">Vaccine Name:</label><br>
+    <label for="fname">Vaccine Name:</label>
     <input type="text" id="vname" name="vname"><br>
-    <label for="dname">Avaliable city:</label><br>
+    <label for="dname">Avaliable city:</label>
     <input type="text" id="aname" name="aname"><br>
-    <label for="lname">Avaliable date:</label><br>
+    <label for="lname">Avaliable date:</label>
     <input type="text" id="avname" name="avname"><br>
-    <label for="mname">End date avalibity:</label><br>
+    <label for="mname">End date avalibity:</label>
     <input type="text" id="nname" name="nname"><br>
-    <label for="ename">Quantity of vaccine:</label><br>
+    <label for="ename">Quantity of vaccine:</label>
     <input type="text" id="qname" name="qname"><br>
     <button type="submit" id="sub_details" name="sub_details" value="sub_details" > Submit </button>
     <br>

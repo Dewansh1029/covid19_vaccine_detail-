@@ -70,6 +70,23 @@ a{
     background-color:blacksalmon;
     text-decoration:none
 }
+.inputdata input{
+    margin-left:9em;
+}
+.input{
+    align-left:rigth;
+}
+label{
+    width:240px;
+    display: inline-block;
+    padding:20px;
+    position:left;
+}
+#sub_details{
+    margin-top:50px;
+    margin-left:170px;
+
+}
 </style>
 </head>
 <body>
@@ -81,26 +98,26 @@ a{
                 <li><a href="{{url_for('first1')}}">Vaccine information</a></li>
                 <li><a href="{{url_for('second2')}}">vaccine avalibility</a></li>
                 <li><a href="{{url_for('third')}}">Vaccine City</a></li>
+                <li><a href="{{url_for('contact')}}">Contact Us</a></li>
             </ul>
-        
+        </div>
 </header>
 
 <div class="title">
-        <h1>Vaccine Deatils</h1>
+        <h1>Vaccine Information</h1>
 
     <form  action="{{url_for('first2')}}" method="post">
-    <label for="fname">Vaccine Name:</label><br>
-    <input type="text" id="fname" name="fname" /><br>
-    <label for="dname">Detail of vaccine:</label><br>
-    <input type="text" id="dname" name="dname" /><br>
-    <label for="lname">Lcation of Manufacture:</label><br>
-    <input type="text" id="lname" name="lname"><br>
-    <label for="mname">Date of Manufacture:</label><br>
-    <input type="text" id="mname" name="mname" /><br>
-    <label for="ename">Expire of date:</label><br>
-    <input type="text" id="ename" name="ename" /><br>
-    <button type="submit" id="sub_details" name="sub_details" value="sub_details" > Submit </button>
-    <br>
+    <label for="fname">Vaccine Name:</label>
+    <input type="text" id="fname" name="fname" align="right"/><br/>
+    <label for="dname">Detail of vaccine:</label>
+    <input type="text" id="dname" name="dname" /><br/>
+    <label for="lname">Lcation of Manufacture:</label>
+    <input type="text" id="lname" name="lname"  /><br>
+    <label for="mname">Date of Manufacture:</label>
+    <input type="text" id="mname" name="mname" /><br/>
+    <label for="ename">Expire of date:</label>
+    <input type="text" id="ename" name="ename"  /><br/>
+    <button type="submit" id="sub_details" name="sub_details" value="sub_details" > Submit </button><br>
     </form>
 </div>
 
@@ -114,7 +131,5 @@ a{
             </div>
         </div>
 </div
-     
-
 </body>
 </html>
