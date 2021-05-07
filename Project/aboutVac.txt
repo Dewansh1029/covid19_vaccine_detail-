@@ -1,0 +1,19 @@
+create table aboutVac
+(
+vac_name varchar(30),
+vac_detail varchar (50),
+vac_manufacture_place varchar(30),
+vac_manufacture_date date,
+vac_expiry date
+);
+
+create table eachVacdetail
+(
+vac_name varchar(30),
+vac_cities varchar(50),
+vac_startdate date,
+vac_enddate date,
+vac_quantity int
+);
+
+contact | CREATE TABLE `contact` (`name` varchar(30) NOT NULL,`email` varchar(30) NOT NULL,`address` varchar(30) NOT NULL)
