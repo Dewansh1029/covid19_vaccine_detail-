@@ -28,10 +28,10 @@ This project is all about covid19 vaccines with a login page which is implemente
   <ul>
     <li> User Interface : Through this 'User Interface', user can interact with this website.</li>
     <li> Business Layer : Used to connect the database file(consist of all the required queries) to the User Interface.</li>
-    <li>  Data Base Layer : It is consist of all the required queries used in this project to implement it.</li>
+    <li>  Database Layer : It is consist of all the required queries used in this project to implement it.</li>
   </ul>
 
-<li>Install python, mysql, flask, mysql connector for this project to implement on your system.</li>
+<li>Install python, mysql, flask, mysql connector to implement this project on your system.</li>
 
 <li>Run the create script to create database and all the tables required in this project.</li>
 </ul>
