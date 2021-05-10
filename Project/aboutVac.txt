@@ -1,4 +1,4 @@
-create table aboutVac
+create table vaccine_details
 (
 vac_name varchar(30),
 vac_detail varchar (50),
@@ -7,7 +7,7 @@ vac_manufacture_date date,
 vac_expiry date
 );
 
-create table eachVacdetail
+create table vaccine_loc
 (
 vac_name varchar(30),
 vac_cities varchar(50),
@@ -16,4 +16,9 @@ vac_enddate date,
 vac_quantity int
 );
 
-contact | CREATE TABLE `contact` (`name` varchar(30) NOT NULL,`email` varchar(30) NOT NULL,`address` varchar(30) NOT NULL)
+create table user_details
+(
+name varchar(30) NOT NULL,
+userid varchar(30) PRIMARY KEY,
+password varchar(30) NOT NULL
+);
