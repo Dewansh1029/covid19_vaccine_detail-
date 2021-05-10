@@ -9,13 +9,13 @@ This project is all about covid19 vaccines with a login page which is implemente
 <b> Project Description : </b> This project is all about covid19 vaccines details with a login page which is implemented using sessions. It has a 'Search Vaccine' page to search all the vaccines and a 'Update Vaccine Details' page to update details of the vaccines.
 
 <b> Descriptions About Modules : </b>
-
-Insert/Show Vaccine Details : This page is used to insert any vaccine with some details like it's manufactured place, manufacture date, manufacture by and expiry date.
-Search vaccine details : Here we have two types of search involved-
-                          1) If the checkbox is not tick - searching will be done on 'vaccine names' field.
-                          2) If the checkbox is tick - searching will be done on 'vaccine names' as well as 'manufactured by' field.
-Update Vaccine Details : Here we can update any details of vaccine based on vaccine name (execpt vaccine name, since it the primary key).
-
+<ul>
+  <li>Insert/Show Vaccine Details : This page is used to insert any vaccine with some details like it's manufactured place, manufacture date, manufacture by and expiry date.</li>
+  <li>Search vaccine details : Here we have two types of search involved-
+                            1) If the checkbox is not tick - searching will be done on 'vaccine names' field.
+                            2) If the checkbox is tick - searching will be done on 'vaccine names' as well as 'manufactured by' field.</li>
+  <li>Update Vaccine Details : Here we can update any details of vaccine based on vaccine name (execpt vaccine name, since it the primary key).</li>
+</ul>
 <b> Usage of Each Components : </b>
 User Interface : Through this 'User Interface', user can interact with this website.
 Business Layer : Used to connect the database file(consist of all the required queries) to the User Interface.
