@@ -1,0 +1,152 @@
+<html>
+<head>
+<style>
+.upper-box {
+    height: 10%;
+    background-color:#343535;
+}
+body {
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+max-width: 100%;
+max-height: 100%;
+margin: auto;
+background-color: #379683;
+}
+ul{
+    list-style-type: none;
+    float:right;
+    margin-top:20px;
+}
+ul li{
+    display: inline-block;
+}
+ul li a{
+    color: whitesmoke;
+    text-decoration:none;
+    padding: 5px 20px;
+    border:1px solid transparent;
+    transition:0.6s ease;
+}
+ul li a:hover{
+    background-color: rgb(39, 39, 39);
+    color: whitesmoke;
+}
+img{
+    width: 100%;
+    padding:5px;
+}
+.title{
+    position: absolute;
+    top:10%;
+    left:40%;
+    /* padding:10px; */
+}
+bg-img{
+    background-image: url("logo.jpg");
+}
+.container{
+    position: absolute;
+    left:28px;
+    max-width:200px;
+}
+.form{
+    margin-top:15px;
+}
+.footer-container{
+    background-color: white;
+    padding-bottom:4rem;
+    bottom: 0;
+}
+.footer{
+    position:absolute;
+    left:0;
+    bottom:0%;
+    width:100%;
+    background-color: blacksalmon;
+    color:black;
+    text-align:center;
+}
+.fotter-heading footer-1{
+    position:fixed;
+    left:0;
+    bottom:0%;
+    width:100%;
+    background-color: black;
+    color:black;
+    text-align:center;
+}
+a{
+    padding: 20px;
+    text-align:center;
+    background-color:blacksalmon;
+    text-decoration:none
+}
+.inputdata input{
+    margin-left:9em;
+}
+.input{
+    align-items :right;
+}
+label{
+    width:240px;
+    display: inline-block;
+    padding:20px;
+    position:left;
+}
+#sub_details{
+    margin-top:50px;
+    margin-left:170px;
+
+}
+</style>
+</head>
+<body background="/static/logo.jpg">
+    {% if session.user %}
+    <h3 style="float: left; color: whitesmoke;">Welcome {{ session.user }}!</h3>
+    {% else %}
+        You are not Register. {{ session.user }}
+    {% endif %}
+    <div class="upper-box">
+        <ul>
+            <li><a href="{{url_for('clickhome')}}">Home</a></li>
+            <li><a href="{{url_for('first1')}}">Vaccine information</a></li>
+            <li><a href="{{url_for('second2')}}">vaccine avalibility</a></li>
+            <li><a href="{{url_for('third')}}">Vaccine City</a></li>
+            <li><a href="{{url_for('show_vac')}}">Search Vaccine</a></li>
+            <li><a href="{{url_for('update_details_first_page')}}">Update Vaccine Details</a></li>
+            <li><a href="{{url_for('contact')}}">Contact Us</a></li>
+            <li><a href="{{url_for('logout')}}">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="title">
+            <h1>Vaccine Information</h1>
+        <form  action="{{url_for('first2')}}" method="post">
+        <label for="fname">Vaccine Name:</label>
+        <input type="text" id="fname" name="fname"/><br/>
+        <label for="dname">Detail of vaccine:</label>
+        <input type="text" id="dname" name="dname" /><br/>
+        <label for="lname">Lcation of Manufacture:</label>
+        <input type="text" id="lname" name="lname"  /><br>
+        <label for="mname">Date of Manufacture:</label>
+        <input type="text" id="mname" name="mname" /><br/>
+        <label for="ename">Expire of date:</label>
+        <input type="text" id="ename" name="ename"  /><br/>
+        <button type="submit" id="sub_details" name="sub_details" value="sub_details" > Submit </button><br>
+        </form>
+    </div>
+
+    <div class="footer-container">
+        <div class="footer">
+            <div class="footer-heading footer-1">
+                <h2>About</h2>
+                <a href="#">Blog</a>
+                <a href="#">Customer</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

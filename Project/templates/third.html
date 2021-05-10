@@ -1,0 +1,165 @@
+<html>
+<head>
+<style>
+.upper-box {
+    height: 10%;
+    background-color:#343535;
+}
+body {
+    background-color: #379683;
+}
+ul{
+    list-style-type: none;
+    float:right;
+    margin-top:20px;
+}
+ul li{
+    display: inline-block;
+}
+ul li a{
+    color: whitesmoke;
+    text-decoration:none;
+    padding: 5px 20px;
+    border:1px solid transparent;
+    transition:0.6s ease;
+}
+ul li a:hover{
+    background-color: rgb(39, 39, 39);
+    color: whitesmoke;
+}
+.footer-container{
+    background-color: white;
+    padding-bottom:4rem;
+}
+.footer{
+    position:fixed;
+    left:0;
+    bottom:0%;
+    width:100%;
+    background-color: blacksalmon;
+    color:black;
+    text-align:center;
+}
+
+a{
+    padding: 20px;
+    text-align:center;
+    background-color:blacksalmon;
+    text-decoration:none;
+}
+
+.table {
+border-collapse: collapse;
+width: 100%;
+color: #588c7e;
+font-family: monospace;
+font-size: 25px;
+text-align: left;
+border-spacing: 5px;
+        
+}
+th {
+background-color: #588c7e;
+color: white;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+</head>
+<body>
+    {% if session.user %}
+    <h3 style="float: left; color: whitesmoke;">Welcome {{ session.user }}!</h3>
+    {% else %}
+        You are not Register. {{ session.user }}
+    {% endif %}
+    <div class="upper-box">
+        <ul>
+            <li><a href="{{url_for('clickhome')}}">Home</a></li>
+            <li><a href="{{url_for('first1')}}">Vaccine information</a></li>
+            <li><a href="{{url_for('second2')}}">vaccine avalibility</a></li>
+            <li><a href="{{url_for('third')}}">Vaccine City</a></li>
+            <li><a href="{{url_for('show_vac')}}">Search Vaccine</a></li>
+            <li><a href="{{url_for('update_details_first_page')}}">Update Vaccine Details</a></li>
+            <li><a href="{{url_for('contact')}}">Contact Us</a></li>
+            <li><a href="{{url_for('logout')}}">Logout</a></li>
+        </ul>
+    </div>
+    <table style="width:100%">
+        <tr>
+            <th>Vaccine name</th>
+            <th>Details of vaccine</th>
+            <th>Location of manufacturer</th>
+            <th>Date of manufacturer</th>
+            <th>Expire of date</th>
+        </tr>
+        <tr>
+            <tr><td>{% for item in data %}
+                <h id="vname"> {{ item[0] }} </h>
+                {% endfor %}
+                <td>{% for item in data_2 %}
+                <h id="avname"> {{ item[0] }} </h>      
+                {% endfor %}
+                </td>
+                <td>{% for item in data_3 %}
+                <h id="avname"> {{ item[0] }} </h>      
+                {% endfor %}
+                </td>
+                <td>{% for item in data_4 %}
+                <h id="nname"> {{ item[0] }} </h>      
+                {% endfor %}
+                </td>
+                <td>{% for item in data_5 %}
+                <h id="qname"> {{ item[0] }} </h>      
+                {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                {% for item in data %}
+                <h id="vanme_details"> {{ item[0] }} </h>      
+                {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                {% for item in data %}
+                <h id="vanme_details"> {{ item[0] }} </h>      
+                {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                {% for item in data %}
+                <h id="vanme_details"> {{ item[0] }} </h>      
+                {% endfor %}
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                {% for item in data %}
+                <h id="vanme_details"> {{ item[1] }} </h>      
+                {% endfor %}
+                </td>
+            </tr>
+        </tr>
+        
+    </table>
+
+<div class="footer-container">
+        <div class="footer">
+            <div class="footer-heading footer-1">
+                <h2>About</h2>
+                <a href="#">Blog</a>
+                <a href="#">Customer</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Product</a>
+                <a href="#">Customer service</a>
+            </div>
+            <div class="footer-bottom">
+            <p>All Right reserved by &copy;conceptial</p>
+            </div>
+        </div>
+    </div> 
+
+</form>
+</body>
+</head>

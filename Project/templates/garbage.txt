@@ -1,0 +1,109 @@
+<html>
+<head>
+<style>
+.container {
+max-width: 100%;
+margin: auto;
+background-color: #00a7a0;
+}
+.header {
+    background-color:#008683;
+}
+.topbox {
+    text-align: right;
+}
+.result{
+    text-align: center;
+    margin-left: 10%;
+    margin-top: 15%;
+}
+table, th, td {
+    border: 1px solid black;
+}
+.table{
+    color: rgba(255, 255, 255, 0.877);
+    background-color: #006a67;
+    margin-left: 30%;
+    margin-top: 15%;
+}
+th {
+    text-align: center;
+}
+td {
+    text-align: center;
+}
+</style>
+</head>
+<body  class="container">
+    <header>
+        <div class="header">
+            <ul>
+                <li><a href="{{url_for('clickhome')}}">Home</a></li>
+                <li><a href="{{url_for('first1')}}">Vaccine information</a></li>
+                <li><a href="{{url_for('second2')}}">vaccine avalibility</a></li>
+                <li><a href="{{url_for('third')}}">Vaccine City</a></li>
+                <li><a href="{{url_for('show_vac')}}">Search Vaccine</a></li>
+                <li><a href="{{url_for('update_details_first_page')}}">Update Vaccine Details</a></li>
+                <li><a href="{{url_for('login')}}">Logout</a></li>
+            </ul>
+        
+    </header>
+    <div>
+        <div class="topbox">
+            <form action="{{url_for('displayDetails')}}" method="post">
+                <label for="checkbox">Search</label>
+                <input style="margin-right: 10%;" type="checkbox" id="checkbox" name="check_box"/>
+                <label for="vac_name">Vaccine name:</label>
+                <input type="text" id="vac_name" name="vac_name"><br><br>
+                <br />
+                <input type="submit" id="btn" value="Submit">
+            </form>
+        </div>
+        <div>
+            {% if status == 0 and val != 2 %}
+                <h1 class="result">
+                Vaccine name does not exits in table! 
+                </h1>
+            {% elif status != 0 and val != 2 %}
+                <table class="table">
+                    <tr>
+                        <th>Vaccine Name</th>
+                        <th>Manufactured By</th>
+                        <th>Manufactured Place</th>
+                        <th>Manufactured Date</th>
+                        <th>Expiry Date</th>
+                    </tr>
+                    {% if val == 0 %}
+                    {%for items in data%}
+                    <tr>
+                        <td>{{ items[0] }}</td>
+                        <td>{{ items[1] }}</td>
+                        <td>{{ items[2] }}</td>
+                        <td>{{ items[3] }}</td>
+                        <td>{{ items[4] }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    {%for items in data%}
+                        <!-- {{items}} -->
+                        {{item}}
+                        <tr>
+                            <td>{{ items[0] }}</td>
+                            <td>{{ items[1] }}</td>
+                            <td>{{ items[2] }}</td>
+                            <td>{{ items[3] }}</td>
+                            <td>{{ items[4] }}</td>
+                        </tr>
+                    {% endfor %}
+                    {% endif %}
+
+                </table>
+            {% else %}
+                <h1 class="result">
+                    Enter Vaccine! 
+                </h1>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/static/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+.upper-box {
+    height: 10%;
+    background-color:#343535;
+}
+body {
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+max-width: 100%;
+max-height: 100%;
+margin: auto;
+}
+
+ul{
+    margin-top: 1.5%;
+    list-style-type: none;
+    float:right;
+}
+ul li{
+    display: inline-block;
+}
+ul li a{
+    color: whitesmoke;
+    margin-top: 1%;
+    text-decoration:none;
+    padding: 5px 20px;
+    border:1px solid transparent;
+    transition:0.6s ease;
+}
+ul li a:hover{
+    background-color: rgb(39, 39, 39);
+    color: whitesmoke;
+    text-decoration:none;
+}
+
+.dropdown1 {
+    margin-left: 35%;
+    margin-top: 2%;
+}
+.details{
+    position: absolute;
+    top:35%;
+    left:34%;
+    padding:10px;
+    color: whitesmoke;
+}
+input {
+    color: black;
+}
+label{
+    width:240px;
+    display: inline-block;
+    padding:10px;
+    position:left;
+}
+.result{
+    text-align: center;
+    margin-left: 5%;
+    margin-top: 13%;
+}
+</style>
+</head>
+<body background="/static/image.jpg">
+    {% if session.user %}
+    <h2 style="float: left; color: whitesmoke;">Welcome {{ session.user }}!</h2>
+    {% else %}
+        You are not Register. {{ session.user }}
+    {% endif %}
+    <div class="upper-box">
+        <ul>
+            <li><a href="{{url_for('clickhome')}}">Home</a></li>
+            <li><a href="{{url_for('first1')}}">Vaccine information</a></li>
+            <li><a href="{{url_for('second2')}}">vaccine avalibility</a></li>
+            <li><a href="{{url_for('third')}}">Vaccine City</a></li>
+            <li><a href="{{url_for('show_vac')}}">Search Vaccine</a></li>
+            <li><a href="{{url_for('update_details_first_page')}}">Update Vaccine Details</a></li>
+            <li><a href="{{url_for('contact')}}">Contact Us</a></li>
+            <li><a href="{{url_for('logout')}}">Logout</a></li>
+        </ul>
+    </div>
+        <div class="dropdown1">
+            {% if val %}
+            <form action="{{url_for('update_details')}}" method="POST">
+                <label style="color: whitesmoke">Search by Category : </label>
+                <select style="height: 3.5%;" id="first-choice" name="first-choice">
+                <option selected = "selected" value="base">Please Select</option>
+                <option value="Vaccine Names">Vaccine Names</option>
+                </select>
+                <button type="submit" value="search" name="search"> Search <i class="fa fa-search"></i></button>
+            </form>
+            {% endif %}
+        </div>
+        <div>
+            <form action="{{url_for('update_vac_details')}}" method="POST">
+                <label style="margin-left: 35%; color: whitesmoke;"> Search by value : </label>
+                <select style="height: 3.5%;" id="second-choice" name="second-choice">
+                <option>Please Select</option>
+                {% if val == 2 %}
+                {%for items in data%}
+                <option value = "{{ items[0] }}">{{ items[0] }}</option>
+                {% endfor %}
+                {% endif %}
+                </select>
+                <button type="submit" value="search" name="search"> Search <i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div class="details">
+            {% if val == 3 %}
+                <form action="{{url_for('updated_vaccine_details')}}" method="post">
+                {% for item in data %}
+                    <label for="vaccine_name">Vaccine Name:</label>
+                    <input type="text" id="vaccine_name" name="vaccine_name" value="{{ item[0] }}" readonly><br><br>
+                    <label for="vaccine_manufactured_by">Vaccine Manufactured By:</label>
+                    <input type="text" id="vaccine_manufactured_by" name="vaccine_manufactured_by" value= "{{ item[1] }}"><br><br>
+                    <label for="vaccine_manufactured_place">Vaccine Manufactured Place:</label>
+                    <input type="text" id="vaccine_manufactured_place" name="vaccine_manufactured_place" value="{{ item[2] }}"><br><br>
+                    <label for="vaccine_manufactured_date">Vaccine Manufactured Date:</label>
+                    <input type="text" id="vaccine_manufactured_date" name="vaccine_manufactured_date" value="{{ item[3] }}"><br><br>
+                    <label for="vaccine_expiry_date">Vaccine Expiry Date:</label>
+                    <input type="text" id="vaccine_expiry_date" name="vaccine_expiry_date" value="{{ item[4] }}"><br><br>
+                    <input type="submit" value="Update Values" style="margin-left: 35%;">
+                {% endfor %}
+                </form>
+            {% endif %}
+        </div>
+        <div class="result">
+            {% if val == 4 %}
+            <h3>Updated Successfully!</h3>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

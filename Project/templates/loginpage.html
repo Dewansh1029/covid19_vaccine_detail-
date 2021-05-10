@@ -1,0 +1,88 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<title> Login Page </title>
+<style>
+
+body {
+max-width: 100%;
+margin: auto;
+background-color: #00a7a0;
+}
+.loginbox{
+display: inline-block;
+/* width: 280px; */
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: rgb(15, 15, 15);
+}
+label {
+display: inline-table;
+position: right;
+padding: 10px;
+color: whitesmoke;
+}
+h5 {
+margin-left: 45%;
+margin-top: 40%;
+color: whitesmoke;
+}
+
+form {
+    display: inline;
+}
+</style>
+</head>
+<body background="/static/image.jpg">
+    <div class="container">
+    <div class="loginbox">
+        {% if status == 0 %}
+        <div>
+            <form action="{{url_for('home')}}" method="post">
+                <label for="userid">User ID:</label>
+                <input type="text" id="userid" name="userid"><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br><br>
+                <input type="submit" value="Login" style="margin-left: 35%;">
+            </form>
+            <form action ="{{url_for('signup')}}" method="post">
+                <input type="submit" value="SignUp" style="margin-left: 10%;">
+            </form>
+        </div>
+        {% else %}
+        <form action="{{url_for('signedup')}}" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="userid">User ID:</label>
+            <input type="text" id="userid" name="userid"><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" minlength="5" name="password"><br><br>
+            <label for="conpassword">Confirm Password:</label>
+            <input type="password" id="conpassword" minlength="5" name="conpassword"><br><br>
+            <input type="submit" value="Done">
+        </form>
+        {% endif %}
+    </div>
+    {% if val == 0 %}
+    {% elif val == 1 %}
+    <h5>
+        You are not registered, Sign up to register yourself! 
+    </h5>
+    {% elif val == 2 %}
+    <h5>
+        Incorrect password!
+    </h5>
+    {% elif val == 3 %}
+    <h5>
+        Login to continue!
+    </h5>
+    {% elif val == 4 %}
+    <h5>
+        Fill the correct details!
+    </h5>
+    {% endif %}
+    </div>
+</body>
+</html>

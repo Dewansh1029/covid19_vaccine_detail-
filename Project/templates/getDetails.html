@@ -1,0 +1,137 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/static/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+.upper-box {
+    height: 10%;
+    background-color:#343535;
+}
+body {
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+max-width: 100%;
+max-height: 100%;
+margin: auto;
+}
+ul{
+    margin-top: 1.5%;
+    list-style-type: none;
+    float:right;
+}
+ul li{
+    display: inline-block;
+}
+ul li a{
+    color: whitesmoke;
+    margin-top: 1%;
+    text-decoration:none;
+    padding: 5px 20px;
+    border:1px solid transparent;
+    transition:0.6s ease;
+}
+ul li a:hover{
+    background-color: rgb(39, 39, 39);
+    color: whitesmoke;
+    text-decoration:none;
+}
+label {
+    margin-left: 40%;
+    color: whitesmoke;
+}
+
+.topbox {
+    margin-top: 1%;
+    text-align: left;
+}
+.table-hover {
+    width: 60%;
+    margin-left: 20%;
+}
+.table-hover tbody tr:hover td, th {
+    background: rgb(39, 39, 39);
+}
+.result {
+    color: whitesmoke;
+}
+</style>
+</head>
+<body background="/static/image.jpg">
+    {% if session.user %}
+        <h2 style="float: left; color: whitesmoke;">Welcome {{ session.user }}!</h2>
+    {% else %}
+        You are not Register. {{ session.user }}
+    {% endif %}
+    <header>
+        <div class="upper-box">
+            <ul>
+                <li><a href="{{url_for('clickhome')}}">Home</a></li>
+                <li><a href="{{url_for('first1')}}">Vaccine information</a></li>
+                <li><a href="{{url_for('second2')}}">vaccine avalibility</a></li>
+                <li><a href="{{url_for('third')}}">Vaccine City</a></li>
+                <li><a href="{{url_for('show_vac')}}">Search Vaccine</a></li>
+                <li><a href="{{url_for('update_details_first_page')}}">Update Vaccine Details</a></li>
+                <li><a href="{{url_for('contact')}}">Contact Us</a></li>
+                <li><a href="{{url_for('logout')}}">Logout</a></li>
+            </ul>
+        
+    </header>
+    <div>
+        <div class="topbox">
+            <form action="{{url_for('displayDetails')}}" method="post">
+                <label for="vac_name">Vaccine name:</label>
+                <input type="text" id="vac_name" name="vac_name" placeholder="Enter Vaccine name">
+                <br><br>
+                <label for="checkbox">Search all fields</label>
+                <input type="checkbox" id="checkbox" name="check_box"/>
+                <button type="submit" value="Submit" style="margin-left: 4%;"> Search <i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div>
+            {% if status == 0 and val != 2 %}
+                <h1 class="result">
+                Vaccine name does not exits in table! 
+                </h1>
+            {% elif status != 0 and val != 2 %}
+                <table class="table table-hover" style="color: whitesmoke;">
+                    <tr>
+                        <th>Vaccine Name</th>
+                        <th>Manufactured By</th>
+                        <th>Manufactured Place</th>
+                        <th>Manufactured Date</th>
+                        <th>Expiry Date</th>
+                    </tr>
+                    {% if val == 0 %}
+                    {%for items in data%}
+                    <tr>
+                        <td>{{ items[0] }}</td>
+                        <td>{{ items[1] }}</td>
+                        <td>{{ items[2] }}</td>
+                        <td>{{ items[3] }}</td>
+                        <td>{{ items[4] }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    {%for items in data%}
+                        <!-- {{items}} -->
+                        {{item}}
+                        <tr>
+                            <td>{{ items[0] }}</td>
+                            <td>{{ items[1] }}</td>
+                            <td>{{ items[2] }}</td>
+                            <td>{{ items[3] }}</td>
+                            <td>{{ items[4] }}</td>
+                        </tr>
+                    {% endfor %}
+                    {% endif %}
+                </table>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
