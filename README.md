@@ -1,8 +1,13 @@
 # covid19_vaccine_detail-
 
 This project is all about covid19 vaccines with a login page which is implemented using sessions.
-
-<b> Project Architecture </b> 
+<ul>
+<li><b> Project Architecture : </b> 3 Tier Architechture</li>
+<ul>
+  <li> User Interface </li>
+  <li> Business Layer </li>
+  <li> Database Layer </li>
+</ul>
 
 <b> Technology Used : </b> HTML, CSS, bootstrap, Python, Flask and MySQL
 
@@ -20,7 +25,7 @@ This project is all about covid19 vaccines with a login page which is implemente
 User Interface : Through this 'User Interface', user can interact with this website.
 Business Layer : Used to connect the database file(consist of all the required queries) to the User Interface.
 Data Base Layer : It is consist of all the required queries used in this project to implement it.
-
+</ul>
 
 Install python, mysql, flask, mysql connector for this project to implement on your system.
 
