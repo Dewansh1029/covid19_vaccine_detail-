@@ -2,7 +2,7 @@
 
 This project is all about covid19 vaccines with a login page which is implemented using sessions.
 
-1.Project Architecture : 3 Tier Acrhitecture 
+<b> Project Architecture </b> 
 
 2.Technology Used : HTML, CSS, bootstrap, Python, Flask and MySQL
 
