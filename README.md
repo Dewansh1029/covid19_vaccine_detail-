@@ -22,19 +22,19 @@ This project is all about covid19 vaccines with a login page which is implemente
 
 <li><b> Descriptions About Modules : </b></li>
   <ul>
-    <li>Insert/Show Vaccine Details : This page is used to insert any vaccine with some details like it's manufactured place, manufacture date, manufacture by and expiry date.       </li>
-    <li>Search vaccine details : Here we have two types of search involved-</li>
+    <li><b>Insert/Show Vaccine Details : </b> This page is used to insert any vaccine with some details like it's manufactured place, manufacture date, manufacture by and expiry date.       </li>
+    <li><b>Search vaccine details : </b> Here we have two types of search involved-</li>
                               <ul>
-                                 <li> If the checkbox is not tick - searching will be done on 'vaccine names' field.
-                                 <li> If the checkbox is tick - searching will be done on 'vaccine names' as well as 'manufactured by' field.
+                                 <li><b> If the checkbox is not tick - <b/> searching will be done on 'vaccine names' field.
+                                 <li><b>If the checkbox is tick - </b> searching will be done on 'vaccine names' as well as 'manufactured by' field.
                               </ul>
-    <li>Update Vaccine Details : Here we can update any details of vaccine based on vaccine name (execpt vaccine name, since it the primary key).</li>
+    <li><b>Update Vaccine Details : </b> Here we can update any details of vaccine based on vaccine name (execpt vaccine name, since it the primary key).</li>
   </ul>
 <li><b> Usage of Each Components : </b></li>
   <ul>
-    <li> User Interface : Through this 'User Interface', user can interact with this website.</li>
-    <li> Business Layer : Used to connect the database file(consist of all the required queries) to the User Interface.</li>
-    <li>  Database Layer : It is consist of all the required queries used in this project to implement it.</li>
+    <li><b> User Interface : </b> Through this 'User Interface', user can interact with this website.</li>
+    <li><b> Business Layer : </b> Used to connect the database file(consist of all the required queries) to the User Interface.</li>
+    <li><b>  Database Layer : </b> It is consist of all the required queries used in this project to implement it.</li>
   </ul>
 
 <li>Install python, mysql, flask, mysql connector to implement this project on your system.</li>
