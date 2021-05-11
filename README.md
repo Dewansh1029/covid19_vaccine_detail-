@@ -9,7 +9,14 @@ This project is all about covid19 vaccines with a login page which is implemente
     <li> Database Layer </li>
   </ul>
 
-<li><b> Technology Used : </b> HTML, CSS, bootstrap, Python, Flask and MySQL</li>
+<li><b> Technology Used : </b> </li>
+    <ul>
+      <li> <b> Front-end : <b> HTML, CSS, bootstrap </li>
+      <li> <b> Programming language : </b> Python </li>
+      <li> <b> Frame work : </b> Flask </li>
+      <li> <b> Back-end(database) : </b> MySQL </li>
+      <li>
+   </ul>
 
 <li><b> Project Description : </b> This project is all about covid19 vaccines details with a login page which is implemented using sessions.</br> 
   It has a 'Search Vaccine' page to search all the vaccines and a 'Update Vaccine Details' page to update details of the vaccines.</li>
