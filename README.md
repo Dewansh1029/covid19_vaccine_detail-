@@ -25,7 +25,7 @@ This project is all about covid19 vaccines with a login page which is implemente
     <li><b>Insert/Show Vaccine Details : </b> This page is used to insert any vaccine with some details like it's manufactured place, manufacture date, manufacture by and expiry date.       </li>
     <li><b>Search vaccine details : </b> Here we have two types of search involved-</li>
                               <ul>
-                                 <li><b> If the checkbox is not tick - <b/> searching will be done on 'vaccine names' field.
+                                 <li><b> If the checkbox is not tick - </b> searching will be done on 'vaccine names' field.
                                  <li><b>If the checkbox is tick - </b> searching will be done on 'vaccine names' as well as 'manufactured by' field.
                               </ul>
     <li><b>Update Vaccine Details : </b> Here we can update any details of vaccine based on vaccine name (execpt vaccine name, since it the primary key).</li>
