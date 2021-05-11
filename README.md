@@ -11,11 +11,10 @@ This project is all about covid19 vaccines with a login page which is implemente
 
 <li><b> Technology Used : </b> </li>
     <ul>
-      <li> <b> Front-end : <b> HTML, CSS, bootstrap </li>
+      <li> <b> Front-end : </b> HTML, CSS, bootstrap </li>
       <li> <b> Programming language : </b> Python </li>
       <li> <b> Frame work : </b> Flask </li>
       <li> <b> Back-end(database) : </b> MySQL </li>
-      <li>
    </ul>
 
 <li><b> Project Description : </b> This project is all about covid19 vaccines details with a login page which is implemented using sessions.</br> 
